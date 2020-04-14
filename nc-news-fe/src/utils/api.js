@@ -24,3 +24,10 @@ export const getArticleById = async (id) => {
   } = await request.get(`/articles/${id}`);
   return article;
 };
+
+export const getCommentsByArticleId = async (id) => {
+  const {
+    data: { comments }
+  } = await request.get(`/articles/${id}/comments`);
+  return comments;
+};

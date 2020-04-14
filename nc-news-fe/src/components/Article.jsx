@@ -26,10 +26,10 @@ class Article extends Component {
       created_at,
       votes,
       comment_count,
-      body
+      body,
+      article_id
     } = this.state.article;
 
-    console.log(comment_count);
     return (
       <article>
         <ArticleInfo
@@ -40,7 +40,7 @@ class Article extends Component {
         />
         <ArticleText body={body} />
         <Votes votes={votes} />
-        <CommentList comment_count={comment_count} />
+        <CommentList comment_count={comment_count} article_id={article_id} />
       </article>
     );
   }

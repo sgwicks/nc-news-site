@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ArticleText = ({ body }) => {
-  return <article>{body}</article>;
+  return <p>{body}</p>;
 };
 
 export default ArticleText;
