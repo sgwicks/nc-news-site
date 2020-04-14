@@ -17,3 +17,10 @@ export const getArticles = async (topic) => {
   } = await request.get('/articles', { params: { topic } });
   return articles;
 };
+
+export const getArticleById = async (id) => {
+  const {
+    data: { article }
+  } = await request.get(`/articles/${id}`);
+  return article;
+};
