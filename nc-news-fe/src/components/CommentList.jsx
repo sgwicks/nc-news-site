@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
 import Comment from './Comment';
+import CommentForm from './CommentForm';
 
 class CommentList extends Component {
   state = {
@@ -19,6 +20,7 @@ class CommentList extends Component {
     return (
       <section>
         <h3>Comments ({comment_count})</h3>
+        <CommentForm />
         <ul>
           {comments.map((comment) => {
             return (
