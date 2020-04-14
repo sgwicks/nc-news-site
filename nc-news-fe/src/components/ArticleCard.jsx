@@ -12,13 +12,10 @@ const ArticleCard = ({
   return (
     <section className='ArticleCard'>
       <div className='ArticleCardInfo'>
-        <h2>{title}</h2>
+        <h2>{stringToTitleCase(title)}</h2>
         <p>
-          in {stringToTitleCase(topic)}
-          <br />
-          by {author}
-          <br />
-          written {created_at.slice(0, 10)}
+          in {stringToTitleCase(topic)}, by {author}, written{' '}
+          {created_at.slice(0, 10)}
         </p>
       </div>
       <p className='ArticleCardVotes'>Votes: {votes}</p>

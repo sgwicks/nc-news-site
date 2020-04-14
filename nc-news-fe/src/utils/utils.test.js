@@ -10,4 +10,7 @@ describe('stringToTitleCase', () => {
   test('Returns single words in title case', () => {
     expect(stringToTitleCase('title')).toBe('Title');
   });
+  test('Returns strings in title case', () => {
+    expect(stringToTitleCase('title case')).toBe('Title Case');
+  });
 });
