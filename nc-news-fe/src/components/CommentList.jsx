@@ -20,7 +20,7 @@ class CommentList extends Component {
     return (
       <section>
         <h3>Comments ({comment_count})</h3>
-        <CommentForm />
+        <CommentForm addComment={this.addComment} />
         <ul>
           {comments.map((comment) => {
             return (
@@ -35,6 +35,14 @@ class CommentList extends Component {
   fetchComments = async (article_id) => {
     const comments = await api.getCommentsByArticleId(article_id);
     this.setState({ comments });
+  };
+
+  addComment = (comment) => {
+    this.setState((currentState) => {
+      const commentList = [...currentState.comments];
+      commentList.unshift(comment);
+      return { ...currentState, comments: commentList };
+    });
   };
 }
 
