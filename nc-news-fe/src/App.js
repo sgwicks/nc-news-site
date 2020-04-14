@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Nav from './components/Nav';
 import ArticleList from './components/ArticleList';
 import Footer from './components/Footer';
+import Article from './components/Article';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <ArticleList path='/' />
         <ArticleList path='/articles' />
         <ArticleList path='/topics/:topic_slug' />
+        <Article path='/articles/:article_id' />
       </Router>
       <Footer />
     </div>
