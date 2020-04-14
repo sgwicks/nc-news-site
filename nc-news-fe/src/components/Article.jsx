@@ -4,6 +4,7 @@ import Loading from './Loading';
 import ArticleText from './ArticleText';
 import Votes from './Votes';
 import CommentList from './CommentList';
+import ArticleInfo from './ArticleInfo';
 
 class Article extends Component {
   state = {
@@ -31,10 +32,12 @@ class Article extends Component {
     console.log(comment_count);
     return (
       <article>
-        <h2>{title}</h2>
-        <p>
-          in {topic}, by {author}, written {created_at.slice(0, 10)}
-        </p>
+        <ArticleInfo
+          title={title}
+          topic={topic}
+          author={author}
+          created_at={created_at}
+        />
         <ArticleText body={body} />
         <Votes votes={votes} />
         <CommentList comment_count={comment_count} />
