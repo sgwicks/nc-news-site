@@ -3,7 +3,7 @@ import './App.css';
 import { Router } from '@reach/router';
 import Header from './components/Header';
 import Nav from './components/Nav';
-import Articles from './components/Articles';
+import ArticleList from './components/ArticleList';
 import Footer from './components/Footer';
 
 function App() {
@@ -12,9 +12,9 @@ function App() {
       <Header />
       <Nav />
       <Router>
-        <Articles path='/' />
-        <Articles path='/articles' />
-        <Articles path='/topics/:topic_slug' />
+        <ArticleList path='/' />
+        <ArticleList path='/articles' />
+        <ArticleList path='/topics/:topic_slug' />
       </Router>
       <Footer />
     </div>
