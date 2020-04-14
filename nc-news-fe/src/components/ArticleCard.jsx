@@ -1,14 +1,28 @@
 import React from 'react';
+import { stringToTitleCase } from '../utils/utils';
 
-const ArticleCard = () => {
+const ArticleCard = ({
+  title,
+  topic,
+  author,
+  created_at,
+  votes,
+  comment_count
+}) => {
   return (
     <section className='ArticleCard'>
       <div className='ArticleCardInfo'>
-        <h2>Article Title</h2>
-        <p>Article Info</p>
+        <h2>{title}</h2>
+        <p>
+          in {stringToTitleCase(topic)}
+          <br />
+          by {author}
+          <br />
+          written {created_at.slice(0, 10)}
+        </p>
       </div>
-      <p className='ArticleCardVotes'>Votes: 19</p>
-      <p className='ArticleCardComments'>Comments: 2</p>
+      <p className='ArticleCardVotes'>Votes: {votes}</p>
+      <p className='ArticleCardComments'>Comments: {comment_count}</p>
     </section>
   );
 };

@@ -10,3 +10,10 @@ export const getTopics = async () => {
   } = await request.get('/topics');
   return topics;
 };
+
+export const getArticles = async () => {
+  const {
+    data: { articles }
+  } = await request.get('/articles');
+  return articles;
+};

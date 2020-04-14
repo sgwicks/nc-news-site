@@ -1,21 +1,33 @@
 import React, { Component } from 'react';
 import ArticleCard from './ArticleCard';
+import * as api from '../utils/api';
 
 class Articles extends Component {
   state = {
-    articleList: [1, 2, 3, 4]
+    articles: []
   };
 
+  componentDidMount() {
+    this.fetchArticles();
+  }
+
   render() {
-    const { articleList } = this.state;
+    const { articles } = this.state;
     return (
       <main>
-        {articleList.map((article) => {
-          return <ArticleCard />;
+        {articles.map((article) => {
+          return (
+            <ArticleCard key={`article ${article.article_id}`} {...article} />
+          );
         })}
       </main>
     );
   }
+
+  fetchArticles = async () => {
+    const articles = await api.getArticles();
+    this.setState({ articles });
+  };
 }
 
 export default Articles;
