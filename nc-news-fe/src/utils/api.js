@@ -11,9 +11,9 @@ export const getTopics = async () => {
   return topics;
 };
 
-export const getArticles = async () => {
+export const getArticles = async (topic) => {
   const {
     data: { articles }
-  } = await request.get('/articles');
+  } = await request.get('/articles', { params: { topic } });
   return articles;
 };

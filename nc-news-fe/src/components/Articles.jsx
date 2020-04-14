@@ -8,7 +8,13 @@ class Articles extends Component {
   };
 
   componentDidMount() {
-    this.fetchArticles();
+    this.fetchArticles(this.props.topic_slug);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.topic_slug !== this.props.topic_slug) {
+      this.fetchArticles(this.props.topic_slug);
+    }
   }
 
   render() {
@@ -24,8 +30,8 @@ class Articles extends Component {
     );
   }
 
-  fetchArticles = async () => {
-    const articles = await api.getArticles();
+  fetchArticles = async (topic) => {
+    const articles = await api.getArticles(topic);
     this.setState({ articles });
   };
 }
