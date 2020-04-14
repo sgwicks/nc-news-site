@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
 import Loading from './Loading';
+import ArticleText from './ArticleText';
+import Votes from './Votes';
+import CommentList from './CommentList';
 
 class Article extends Component {
   state = {
@@ -21,19 +24,20 @@ class Article extends Component {
       author,
       created_at,
       votes,
-      comments,
+      comment_count,
       body
     } = this.state.article;
 
+    console.log(comment_count);
     return (
       <article>
         <h2>{title}</h2>
         <p>
           in {topic}, by {author}, written {created_at.slice(0, 10)}
         </p>
-        <p>{body}</p>
-        <p>Votes: {votes}</p>
-        <p>Comments: {comments}</p>
+        <ArticleText body={body} />
+        <Votes votes={votes} />
+        <CommentList comment_count={comment_count} />
       </article>
     );
   }
