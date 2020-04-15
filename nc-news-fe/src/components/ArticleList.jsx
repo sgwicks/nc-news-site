@@ -4,6 +4,13 @@ import * as api from '../utils/api';
 import { stringToTitleCase } from '../utils/utils';
 import Loading from './Loading';
 import Dropdown from './Dropdown';
+import styled from 'styled-components';
+
+const StyledMain = styled.main`
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+`;
 
 class ArticleList extends Component {
   state = {
@@ -27,7 +34,7 @@ class ArticleList extends Component {
     const { articles, isLoading } = this.state;
     if (isLoading) return <Loading />;
     return (
-      <main>
+      <StyledMain>
         <h2>{stringToTitleCase(this.props.topic_slug) || 'All'} Articles</h2>
         <Dropdown
           topic={this.props.topic_slug}
@@ -38,7 +45,7 @@ class ArticleList extends Component {
             <ArticleCard key={`article ${article.article_id}`} {...article} />
           );
         })}
-      </main>
+      </StyledMain>
     );
   }
 

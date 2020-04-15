@@ -1,15 +1,16 @@
 import React from 'react';
 import { stringToTitleCase } from '../utils/utils';
+import { Info } from '../styles/ArticleCardStyles';
 
-const ArticleInfo = ({ title, topic, author, created_at }) => {
+const ArticleInfo = ({ title, topic, author, created_at, type }) => {
   return (
-    <div className='ArticleCardInfo'>
+    <Info type={type}>
       <h3>{stringToTitleCase(title)}</h3>
       <p>
         in {stringToTitleCase(topic)}, by {author}, written{' '}
         {created_at.slice(0, 10)}
       </p>
-    </div>
+    </Info>
   );
 };
 
