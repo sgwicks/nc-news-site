@@ -1,7 +1,7 @@
 import React from 'react';
 import Votes from './Votes';
 
-const Comment = ({ author, body, votes, created_at }) => {
+const Comment = ({ author, body, votes, created_at, comment_id }) => {
   return (
     <>
       <p>
@@ -11,7 +11,7 @@ const Comment = ({ author, body, votes, created_at }) => {
         <br />
         Posted {created_at.slice(0, 10)}
       </p>
-      <Votes votes={votes} />
+      <Votes votes={votes} type={'comments'} id={comment_id} />
     </>
   );
 };

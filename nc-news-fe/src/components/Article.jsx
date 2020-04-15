@@ -39,7 +39,7 @@ class Article extends Component {
           created_at={created_at}
         />
         <ArticleText body={body} />
-        <Votes votes={votes} />
+        <Votes votes={votes} type={'articles'} id={article_id} />
         <CommentList comment_count={comment_count} article_id={article_id} />
       </article>
     );

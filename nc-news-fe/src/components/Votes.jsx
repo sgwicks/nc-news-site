@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as api from '../utils/api';
 
 class Votes extends Component {
   state = {
@@ -22,9 +23,11 @@ class Votes extends Component {
   }
 
   handleClick = (num) => {
+    const { type, id } = this.props;
     this.setState((currentState) => {
       return { votes: currentState.votes + num };
     });
+    api.patchVotesById(type, id, num);
   };
 }
 

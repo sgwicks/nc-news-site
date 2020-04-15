@@ -38,3 +38,7 @@ export const postCommentToArticleId = async (id, username, body) => {
     body
   });
 };
+
+export const patchVotesById = async (type, id, num) => {
+  request.patch(`/${type}/${id}/`, { inc_votes: num });
+};
