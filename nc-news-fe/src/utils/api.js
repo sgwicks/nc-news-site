@@ -11,10 +11,10 @@ export const getTopics = async () => {
   return topics;
 };
 
-export const getArticles = async (topic) => {
+export const getArticles = async (topic, sort_by, order) => {
   const {
     data: { articles }
-  } = await request.get('/articles', { params: { topic } });
+  } = await request.get('/articles', { params: { topic, sort_by, order } });
   return articles;
 };
 
