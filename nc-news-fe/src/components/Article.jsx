@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
 import Loading from './Loading';
-import ArticleText from './ArticleText';
 import Votes from './Votes';
 import CommentList from './CommentList';
 import ArticleInfo from './ArticleInfo';
@@ -38,7 +37,7 @@ class Article extends Component {
           author={author}
           created_at={created_at}
         />
-        <ArticleText body={body} />
+        <p>{body}</p>
         <Votes votes={votes} type={'articles'} id={article_id} />
         <CommentList comment_count={comment_count} article_id={article_id} />
       </article>
