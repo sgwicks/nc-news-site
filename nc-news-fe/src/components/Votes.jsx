@@ -11,8 +11,21 @@ class Votes extends Component {
 
   render() {
     const { votes } = this.state;
-    return <section>Votes: {votes}</section>;
+    return (
+      <section>
+        Votes:
+        <button onClick={() => this.handleClick(-1)}>-</button>
+        {votes}
+        <button onClick={() => this.handleClick(1)}>+</button>
+      </section>
+    );
   }
+
+  handleClick = (num) => {
+    this.setState((currentState) => {
+      return { votes: currentState.votes + num };
+    });
+  };
 }
 
 export default Votes;

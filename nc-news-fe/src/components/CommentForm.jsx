@@ -37,7 +37,7 @@ class CommentForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { input } = this.state;
-    const author = 'happyamy2016';
+    const author = 'happyamy2016'; // user must exist in database for successful POST
 
     if (input) {
       const comment = {
