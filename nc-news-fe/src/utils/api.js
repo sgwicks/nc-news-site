@@ -31,3 +31,10 @@ export const getCommentsByArticleId = async (id) => {
   } = await request.get(`/articles/${id}/comments`);
   return comments;
 };
+
+export const postCommentToArticleId = async (id, username, body) => {
+  request.post(`/articles/${id}/comments`, {
+    username,
+    body
+  });
+};

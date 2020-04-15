@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as api from '../utils/api';
 
 class CommentForm extends Component {
   state = {
@@ -36,10 +37,11 @@ class CommentForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { input } = this.state;
+    const author = 'happyamy2016';
 
     if (input) {
       const comment = {
-        author: 'sam',
+        author,
         body: input,
         comment_id: Math.random(),
         votes: 0,
@@ -48,6 +50,7 @@ class CommentForm extends Component {
       this.props.addComment(comment);
       this.setState({ input: '' });
       localStorage.setItem('input', '');
+      api.postCommentToArticleId(this.props.article_id, author, input);
     }
   };
 }

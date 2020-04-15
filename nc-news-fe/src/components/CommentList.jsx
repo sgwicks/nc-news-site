@@ -20,7 +20,10 @@ class CommentList extends Component {
     return (
       <section>
         <h3>Comments ({comment_count})</h3>
-        <CommentForm addComment={this.addComment} />
+        <CommentForm
+          addComment={this.addComment}
+          article_id={this.props.article_id}
+        />
         <ul>
           {comments.map((comment) => {
             return (
