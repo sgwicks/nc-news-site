@@ -33,12 +33,16 @@ export const getCommentsByArticleId = async (id) => {
 };
 
 export const postCommentToArticleId = async (id, username, body) => {
-  request.post(`/articles/${id}/comments`, {
+  return request.post(`/articles/${id}/comments`, {
     username,
     body
   });
 };
 
 export const patchVotesById = async (type, id, num) => {
-  request.patch(`/${type}/${id}/`, { inc_votes: num });
+  return request.patch(`/${type}/${id}/`, { inc_votes: num });
+};
+
+export const deleteCommentById = async (comment_id) => {
+  return request.delete(`comments/${comment_id}`);
 };

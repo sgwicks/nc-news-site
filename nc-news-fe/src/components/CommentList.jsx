@@ -23,11 +23,17 @@ class CommentList extends Component {
         <CommentForm
           addComment={this.addComment}
           article_id={this.props.article_id}
+          fetchComments={this.fetchComments}
         />
         <ul>
           {comments.map((comment) => {
             return (
-              <Comment key={`comment ${comment.comment_id}`} {...comment} />
+              <Comment
+                key={`comment ${comment.comment_id}`}
+                {...comment}
+                fetchComments={this.fetchComments}
+                article_id={this.props.article_id}
+              />
             );
           })}
         </ul>

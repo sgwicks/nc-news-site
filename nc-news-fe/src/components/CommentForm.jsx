@@ -38,6 +38,7 @@ class CommentForm extends Component {
     event.preventDefault();
     const { input } = this.state;
     const author = 'happyamy2016'; // user must exist in database for successful POST
+    const { addComment, fetchComments, article_id } = this.props;
 
     if (input) {
       const comment = {
@@ -47,10 +48,12 @@ class CommentForm extends Component {
         votes: 0,
         created_at: new Date().toISOString()
       };
-      this.props.addComment(comment);
+      addComment(comment);
       this.setState({ input: '' });
       localStorage.setItem('input', '');
-      api.postCommentToArticleId(this.props.article_id, author, input);
+      api.postCommentToArticleId(article_id, author, input).then(() => {
+        fetchComments(article_id);
+      });
     }
   };
 }
