@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ArticleCard from './ArticleCard';
 import * as api from '../utils/api';
+import { stringToTitleCase } from '../utils/utils';
 
 class ArticleList extends Component {
   state = {
@@ -21,6 +22,7 @@ class ArticleList extends Component {
     const { articles } = this.state;
     return (
       <main>
+        <h2>{stringToTitleCase(this.props.topic_slug) || 'All'} Articles</h2>
         {articles.map((article) => {
           return (
             <ArticleCard key={`article ${article.article_id}`} {...article} />
