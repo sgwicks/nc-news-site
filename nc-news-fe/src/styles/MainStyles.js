@@ -4,7 +4,6 @@ export const StyledMain = styled.main`
   background-color: grey;
   display: flex;
   flex-direction: column;
-  position: relative;
 `;
 
 export const StyledH2 = styled.h2`

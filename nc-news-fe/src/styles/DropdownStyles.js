@@ -1,17 +1,19 @@
 import styled from 'styled-components';
 
 export const DropdownButton = styled.button`
-  width: 220px;
+  width: 224px;
   align-self: center;
   text-align: left;
-  padding: 0;
-  border: none;
+  padding: 0 0 0 5px;
+  margin: 0;
+  border: solid black 2px;
   background: white;
+  position: relative;
 `;
 
 export const DropdownOption = styled.button`
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 5px;
   border: none;
   background: none;
   width: 100%;
@@ -25,7 +27,8 @@ export const DropdownList = styled.ul`
   padding: 0;
   border: solid black 2px;
   width: 220px;
-  align-self: center;
   position: absolute;
-  top: 100px;
+  top: 17px;
+  left: -2px;
+  right: 0;
 `;
