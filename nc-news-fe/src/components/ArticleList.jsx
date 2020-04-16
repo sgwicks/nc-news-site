@@ -5,11 +5,13 @@ import { stringToTitleCase } from '../utils/utils';
 import Loading from './Loading';
 import Dropdown from './Dropdown';
 import { StyledMain, StyledH2 } from '../styles/MainStyles';
+import ErrorPage from './ErrorPage';
 
 class ArticleList extends Component {
   state = {
     articles: [],
-    isLoading: true
+    isLoading: true,
+    isError: null
   };
 
   componentDidMount() {
@@ -25,8 +27,9 @@ class ArticleList extends Component {
   }
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, isError } = this.state;
     if (isLoading) return <Loading />;
+    if (isError) return <ErrorPage />;
     return (
       <StyledMain>
         <StyledH2>
@@ -46,8 +49,12 @@ class ArticleList extends Component {
   }
 
   fetchArticles = async (topic, sort_by, order) => {
-    const articles = await api.getArticles(topic, sort_by, order);
-    this.setState({ articles, isLoading: false });
+    try {
+      const articles = await api.getArticles(topic, sort_by, order);
+      this.setState({ articles, isLoading: false });
+    } catch (err) {
+      this.setState({ isError: true, isLoading: false });
+    }
   };
 }
 

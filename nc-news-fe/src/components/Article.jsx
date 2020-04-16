@@ -4,11 +4,13 @@ import Loading from './Loading';
 import Votes from './Votes';
 import CommentList from './CommentList';
 import ArticleInfo from './ArticleInfo';
+import ErrorPage from './ErrorPage';
 
 class Article extends Component {
   state = {
     article: {},
-    isLoading: true
+    isLoading: true,
+    isError: null
   };
 
   componentDidMount() {
@@ -17,6 +19,7 @@ class Article extends Component {
 
   render() {
     if (this.state.isLoading) return <Loading />;
+    if (this.state.isError) return <ErrorPage />;
 
     const {
       title,
@@ -45,8 +48,12 @@ class Article extends Component {
   }
 
   fetchArticleById = async (article_id) => {
-    const article = await api.getArticleById(article_id);
-    this.setState({ article, isLoading: false });
+    try {
+      const article = await api.getArticleById(article_id);
+      this.setState({ article, isLoading: false });
+    } catch (err) {
+      this.setState({ isError: true, isLoading: false });
+    }
   };
 }
 
