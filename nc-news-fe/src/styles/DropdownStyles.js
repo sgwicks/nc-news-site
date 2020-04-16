@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const DropdownButton = styled.button`
   width: 220px;
   align-self: center;
+  text-align: left;
+  padding: 0;
+  border: none;
+  background: white;
 `;
 
 export const DropdownOption = styled.button`
@@ -22,4 +26,6 @@ export const DropdownList = styled.ul`
   border: solid black 2px;
   width: 220px;
   align-self: center;
+  position: absolute;
+  top: 100px;
 `;

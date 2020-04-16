@@ -4,6 +4,7 @@ import { Link } from '@reach/router';
 export const StyledLink = styled(Link)`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const Section = styled.section`
@@ -14,6 +15,7 @@ export const Section = styled.section`
     'ArticleCardInfo ArticleCardVotes'
     'ArticleCardInfo ArticleCardComments';
   margin: 20px 0;
+  width: 80%;
 `;
 
 export const Votes = styled.p`
