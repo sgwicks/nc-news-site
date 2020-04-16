@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledMain = styled.main`
-  background-color: grey;
+  background: #dddddd;
   display: flex;
   flex-direction: column;
 `;
 
-export const StyledH2 = styled.h2`
-  border: solid green 2px;
-`;
+export const StyledH2 = styled.h2``;

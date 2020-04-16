@@ -1,13 +1,24 @@
 import React from 'react';
-import { Link } from '@reach/router';
-import { StyledHeader } from '../styles/AppStyles';
+import {
+  StyledHeader,
+  HeaderLink,
+  H1,
+  User,
+  OrbImg
+} from '../styles/HeaderStyles';
+import GreenOrb from '../GreenOrb.png';
 
 const Header = () => {
   return (
     <StyledHeader>
-      <Link to='/'>
-        <h1>NC News Now</h1>
-      </Link>
+      <>
+        <HeaderLink to='/'>
+          <H1>NC News Now</H1>
+        </HeaderLink>
+        <User>
+          <OrbImg src={GreenOrb} alt='logged in' /> happyamy2016
+        </User>
+      </>
     </StyledHeader>
   );
 };

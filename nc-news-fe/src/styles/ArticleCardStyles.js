@@ -5,11 +5,13 @@ export const StyledLink = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
 `;
 
 export const Section = styled.section`
+  background: white;
   display: grid;
-  grid-template-columns: 5fr;
+  grid-template-columns: 5fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     'ArticleCardInfo ArticleCardVotes'
@@ -21,7 +23,7 @@ export const Section = styled.section`
 export const Votes = styled.p`
   grid-area: ArticleCardVotes;
   margin: 0;
-  background-color: green;
+  border: solid black 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +32,8 @@ export const Votes = styled.p`
 export const Comments = styled.p`
   grid-area: ArticleCardComments;
   margin: 0;
-  background-color: goldenrod;
+  border: solid black 2px;
+  border-top: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,8 +42,8 @@ export const Comments = styled.p`
 export const Info = styled.div`
   ${(props) =>
     props.type === 'card'
-      ? 'border: 2px solid red'
-      : 'border: 2px solid green'};
+      ? 'border: 2px solid black; border-right: 0'
+      : 'border: 2px solid black'};
   grid-area: ArticleCardInfo;
   padding: 0 20px;
 `;

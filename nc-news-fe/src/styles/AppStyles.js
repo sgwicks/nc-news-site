@@ -9,26 +9,21 @@ export const StyledRouter = styled(Router)`
 export const StyledApp = styled.div`
   text-align: center;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 5fr 1fr;
   grid-template-rows: auto;
   grid-template-areas:
-    'AppHeader AppHeader AppHeader '
-    'AppNav AppNav AppNav'
+    '. AppHeader . '
+    '. AppNav .'
     '. AppMain .'
-    'AppFooter AppFooter AppFooter';
-`;
-
-export const StyledHeader = styled.header`
-  border: 3px solid red;
-  grid-area: AppHeader;
+    '. AppFooter .';
 `;
 
 export const StyledNav = styled.nav`
-  border: 3px solid blue;
+  background: #cccccc;
+  padding: 10px 0;
   grid-area: AppNav;
 `;
 
 export const StyledFooter = styled.footer`
-  border: 3px solid yellow;
   grid-area: AppFooter;
 `;
