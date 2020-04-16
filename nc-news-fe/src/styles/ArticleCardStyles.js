@@ -1,4 +1,10 @@
 import styled from 'styled-components';
+import { Link } from '@reach/router';
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const Section = styled.section`
   display: grid;
@@ -8,7 +14,6 @@ export const Section = styled.section`
     'ArticleCardInfo ArticleCardVotes'
     'ArticleCardInfo ArticleCardComments';
   margin: 20px 0;
-  width: 75%;
 `;
 
 export const Votes = styled.p`

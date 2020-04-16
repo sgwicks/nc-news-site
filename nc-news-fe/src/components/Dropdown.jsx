@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import DropdownOption from './DropdownOption';
+import styled from 'styled-components';
+
+const DropdownButton = styled.button`
+  flex-basis: 50%;
+`;
 
 class Dropdown extends Component {
   state = {
@@ -18,8 +23,8 @@ class Dropdown extends Component {
     const { isVisibile, options } = this.state;
     const { fetchArticles, topic } = this.props;
     return (
-      <div>
-        <button onClick={this.handleClick}>Sort by:</button>
+      <>
+        <DropdownButton onClick={this.handleClick}>Sort by:</DropdownButton>
         {isVisibile && (
           <ul>
             {options.map((option, i) => {
@@ -37,7 +42,7 @@ class Dropdown extends Component {
             })}
           </ul>
         )}
-      </div>
+      </>
     );
   }
 
