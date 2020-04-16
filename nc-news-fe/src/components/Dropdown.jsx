@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import DropdownOption from './DropdownOption';
-import styled from 'styled-components';
-
-const DropdownButton = styled.button`
-  flex-basis: 50%;
-`;
+import {
+  DropdownButton,
+  DropdownOption,
+  DropdownList
+} from '../styles/DropdownStyles';
 
 class Dropdown extends Component {
   state = {
@@ -26,25 +25,34 @@ class Dropdown extends Component {
       <>
         <DropdownButton onClick={this.handleClick}>Sort by:</DropdownButton>
         {isVisibile && (
-          <ul>
+          <DropdownList>
             {options.map((option, i) => {
               const { sort_by, order } = option;
               return (
                 <li key={`option-${i}`}>
                   <DropdownOption
-                    topic={topic}
-                    sort_by={sort_by}
-                    order={order}
-                    fetchArticles={fetchArticles}
-                  />
+                    onClick={() => {
+                      fetchArticles(topic, sort_by, order);
+                    }}
+                    onMouseEnter={(event) =>
+                      this.handleHover(event, 'blue', 'white')
+                    }
+                    onMouseLeave={(event) => this.handleHover(event, '', '')}>
+                    {sort_by} ({order})
+                  </DropdownOption>
                 </li>
               );
             })}
-          </ul>
+          </DropdownList>
         )}
       </>
     );
   }
+
+  handleHover = (event, bg, text) => {
+    event.target.style.background = bg;
+    event.target.style.color = text;
+  };
 
   handleClick = () => {
     this.setState((currentState) => {
