@@ -7,7 +7,7 @@ import {
 
 class Dropdown extends Component {
   state = {
-    isVisibile: false,
+    isVisible: false,
     options: [
       { sort_by: 'created_at', order: 'asc', alias: 'Date' },
       { sort_by: 'created_at', order: 'desc', alias: 'Date' },
@@ -19,15 +19,15 @@ class Dropdown extends Component {
   };
 
   render() {
-    const { isVisibile, options } = this.state;
+    const { isVisible, options } = this.state;
     const { fetchArticles, topic } = this.props;
     return (
       <>
         <DropdownButton
           onClick={this.handleClick}
-          onMouseLeave={this.handleClick}>
+          onMouseLeave={this.handleDropdownLeave}>
           Sort by:
-          {isVisibile && (
+          {isVisible && (
             <DropdownList>
               {options.map((option, i) => {
                 const { sort_by, order, alias } = option;
@@ -60,8 +60,12 @@ class Dropdown extends Component {
 
   handleClick = () => {
     this.setState((currentState) => {
-      return { isVisibile: !currentState.isVisibile };
+      return { isVisible: !currentState.isVisible };
     });
+  };
+
+  handleDropdownLeave = () => {
+    this.setState({ isVisible: false });
   };
 }
 
