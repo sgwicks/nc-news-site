@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import * as api from '../utils/api';
 import Comment from './Comment';
 import CommentForm from './CommentForm';
+import Loading from './Loading';
+import ErrorPage from './ErrorPage';
 
 class CommentList extends Component {
   state = {
     comments: [],
-    comment_count: null
+    comment_count: null,
+    isLoading: true,
+    isError: null
   };
 
   componentDidMount() {
@@ -16,7 +20,10 @@ class CommentList extends Component {
   }
 
   render() {
-    const { comment_count, comments } = this.state;
+    const { comment_count, comments, isLoading, isError } = this.state;
+    if (isLoading) return <Loading />;
+    if (isError) return <ErrorPage />;
+
     return (
       <section>
         <h3>Comments ({comment_count})</h3>
@@ -42,8 +49,12 @@ class CommentList extends Component {
   }
 
   fetchComments = async (article_id) => {
-    const comments = await api.getCommentsByArticleId(article_id);
-    this.setState({ comments });
+    try {
+      const comments = await api.getCommentsByArticleId(article_id);
+      this.setState({ comments, isLoading: false });
+    } catch (err) {
+      this.setState({ isError: true, isLoading: false });
+    }
   };
 
   addComment = (comment) => {

@@ -4,7 +4,8 @@ import * as api from '../utils/api';
 class CommentForm extends Component {
   state = {
     input: localStorage.getItem('input'),
-    comment: null
+    comment: null,
+    isError: null
   };
 
   render() {
@@ -25,6 +26,12 @@ class CommentForm extends Component {
           <br />
           <button>Post a comment</button>
         </form>
+        {this.state.isError && (
+          <p style={{ color: 'red' }}>
+            Something went wrong, and your comment was not posted. Try again
+            later.
+          </p>
+        )}
       </>
     );
   }
@@ -51,9 +58,15 @@ class CommentForm extends Component {
       addComment(comment);
       this.setState({ input: '' });
       localStorage.setItem('input', '');
-      api.postCommentToArticleId(article_id, author, input).then(() => {
-        fetchComments(article_id);
-      });
+      api
+        .postCommentToArticleId(article_id, author, input)
+        .then(() => {
+          fetchComments(article_id);
+        })
+        .catch((err) => {
+          this.setState({ isError: true });
+          fetchComments(article_id);
+        });
     }
   };
 }
