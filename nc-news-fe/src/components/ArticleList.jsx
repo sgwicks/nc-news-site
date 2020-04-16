@@ -4,7 +4,7 @@ import * as api from '../utils/api';
 import { stringToTitleCase } from '../utils/utils';
 import Loading from './Loading';
 import Dropdown from './Dropdown';
-import * as MainStyles from '../styles/MainStyles';
+import { StyledMain, StyledH2 } from '../styles/MainStyles';
 
 class ArticleList extends Component {
   state = {
@@ -28,10 +28,10 @@ class ArticleList extends Component {
     const { articles, isLoading } = this.state;
     if (isLoading) return <Loading />;
     return (
-      <MainStyles.StyledMain>
-        <MainStyles.StyledH2>
+      <StyledMain>
+        <StyledH2>
           {stringToTitleCase(this.props.topic_slug) || 'All'} Articles
-        </MainStyles.StyledH2>
+        </StyledH2>
         <Dropdown
           topic={this.props.topic_slug}
           fetchArticles={this.fetchArticles}
@@ -41,7 +41,7 @@ class ArticleList extends Component {
             <ArticleCard key={`article ${article.article_id}`} {...article} />
           );
         })}
-      </MainStyles.StyledMain>
+      </StyledMain>
     );
   }
 

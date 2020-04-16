@@ -1,10 +1,4 @@
 import styled from 'styled-components';
-import { Router } from '@reach/router';
-
-export const StyledRouter = styled(Router)`
-  grid-area: AppMain;
-  display: flex;
-`;
 
 export const StyledMain = styled.main`
   background-color: grey;

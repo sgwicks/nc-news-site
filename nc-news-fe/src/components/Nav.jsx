@@ -3,6 +3,7 @@ import Loading from './Loading';
 import * as api from '../utils/api';
 import { stringToTitleCase } from '../utils/utils';
 import { Link } from '@reach/router';
+import { StyledNav } from '../styles/AppStyles';
 
 class Nav extends Component {
   state = {
@@ -18,7 +19,7 @@ class Nav extends Component {
     const { isLoading, topics } = this.state;
     if (isLoading) return <Loading />;
     return (
-      <nav className='Nav'>
+      <StyledNav>
         {topics.map((topic, i) => {
           const { slug } = topic;
           return (
@@ -28,7 +29,7 @@ class Nav extends Component {
           );
         })}
         <Link to='/articles'>All</Link>
-      </nav>
+      </StyledNav>
     );
   }
 

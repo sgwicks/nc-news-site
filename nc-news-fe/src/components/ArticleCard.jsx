@@ -1,6 +1,11 @@
 import React from 'react';
 import ArticleInfo from './ArticleInfo';
-import * as CardStyles from '../styles/ArticleCardStyles';
+import {
+  StyledLink,
+  Section,
+  Votes,
+  Comments
+} from '../styles/ArticleCardStyles';
 
 const ArticleCard = ({
   title,
@@ -12,8 +17,8 @@ const ArticleCard = ({
   article_id
 }) => {
   return (
-    <CardStyles.StyledLink to={`/articles/${article_id}`}>
-      <CardStyles.Section>
+    <StyledLink to={`/articles/${article_id}`}>
+      <Section>
         <ArticleInfo
           title={title}
           topic={topic}
@@ -21,10 +26,10 @@ const ArticleCard = ({
           created_at={created_at}
           type={'card'}
         />
-        <CardStyles.Votes>Votes: {votes}</CardStyles.Votes>
-        <CardStyles.Comments>Comments: {comment_count}</CardStyles.Comments>
-      </CardStyles.Section>
-    </CardStyles.StyledLink>
+        <Votes>Votes: {votes}</Votes>
+        <Comments>Comments: {comment_count}</Comments>
+      </Section>
+    </StyledLink>
   );
 };
 

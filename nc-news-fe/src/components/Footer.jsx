@@ -1,7 +1,8 @@
 import React from 'react';
+import { StyledFooter } from '../styles/AppStyles';
 
 const Footer = () => {
-  return <footer className='Footer'>Site built by SGWicks</footer>;
+  return <StyledFooter>Site built by SGWicks</StyledFooter>;
 };
 
 export default Footer;
