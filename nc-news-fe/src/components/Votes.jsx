@@ -3,7 +3,8 @@ import * as api from '../utils/api';
 
 class Votes extends Component {
   state = {
-    votes: null
+    votes: null,
+    voted: 0
   };
 
   componentDidMount() {
@@ -11,13 +12,17 @@ class Votes extends Component {
   }
 
   render() {
-    const { votes } = this.state;
+    const { votes, voted } = this.state;
     return (
       <section>
         Votes:
-        <button onClick={() => this.handleClick(-1)}>-</button>
+        <button onClick={() => this.handleClick(-1)} disabled={voted < 0}>
+          -
+        </button>
         {votes}
-        <button onClick={() => this.handleClick(1)}>+</button>
+        <button onClick={() => this.handleClick(1)} disabled={voted > 0}>
+          +
+        </button>
       </section>
     );
   }
@@ -25,7 +30,10 @@ class Votes extends Component {
   handleClick = (num) => {
     const { type, id } = this.props;
     this.setState((currentState) => {
-      return { votes: currentState.votes + num };
+      return {
+        votes: currentState.votes + num,
+        voted: currentState.voted + num
+      };
     });
     api.patchVotesById(type, id, num);
   };
