@@ -9,7 +9,7 @@ export const StyledLink = styled(Link)`
 
 export const Section = styled.section`
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 5fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     'ArticleCardInfo ArticleCardVotes'

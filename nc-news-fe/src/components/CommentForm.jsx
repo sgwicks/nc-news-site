@@ -5,7 +5,8 @@ class CommentForm extends Component {
   state = {
     input: localStorage.getItem('input'),
     comment: null,
-    isError: null
+    isError: null,
+    submitIsEmpty: null
   };
 
   render() {
@@ -32,6 +33,12 @@ class CommentForm extends Component {
             later.
           </p>
         )}
+        {this.state.submitIsEmpty && (
+          <p style={{ color: 'red' }}>
+            You can't post an empty comment. Write something in the box and try
+            again.
+          </p>
+        )}
       </>
     );
   }
@@ -41,7 +48,7 @@ class CommentForm extends Component {
     this.setState({ input });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     const { input } = this.state;
     const author = 'happyamy2016'; // user must exist in database for successful POST
@@ -56,17 +63,17 @@ class CommentForm extends Component {
         created_at: new Date().toISOString()
       };
       addComment(comment);
-      this.setState({ input: '' });
-      localStorage.setItem('input', '');
-      api
-        .postCommentToArticleId(article_id, author, input)
-        .then(() => {
-          fetchComments(article_id);
-        })
-        .catch((err) => {
-          this.setState({ isError: true });
-          fetchComments(article_id);
-        });
+      this.setState({ input: '', submitIsEmpty: false });
+      try {
+        await api.postCommentToArticleId(article_id, author, input);
+        fetchComments(article_id);
+        localStorage.setItem('input', '');
+      } catch (err) {
+        this.setState({ isError: true, input: localStorage.getItem('input') });
+        fetchComments(article_id);
+      }
+    } else {
+      this.setState({ submitIsEmpty: true });
     }
   };
 }

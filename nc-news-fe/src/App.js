@@ -5,6 +5,7 @@ import ArticleList from './components/ArticleList';
 import Footer from './components/Footer';
 import Article from './components/Article';
 import { StyledApp, StyledRouter } from './styles/AppStyles';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <ArticleList path='/articles' />
         <ArticleList path='/topics/:topic_slug' />
         <Article path='/articles/:article_id' />
+        <ErrorPage default />
       </StyledRouter>
       <Footer />
     </StyledApp>
