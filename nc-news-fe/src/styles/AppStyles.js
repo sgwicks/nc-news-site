@@ -18,12 +18,6 @@ export const StyledApp = styled.div`
     '. AppFooter .';
 `;
 
-export const StyledNav = styled.nav`
-  background: #cccccc;
-  padding: 10px 0;
-  grid-area: AppNav;
-`;
-
 export const StyledFooter = styled.footer`
   grid-area: AppFooter;
 `;

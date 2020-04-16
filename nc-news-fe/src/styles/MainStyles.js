@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledMain = styled.main`
-  background: #dddddd;
+  background: #eee;
   display: flex;
   flex-direction: column;
 `;

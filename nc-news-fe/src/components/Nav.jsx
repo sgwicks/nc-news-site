@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Loading from './Loading';
 import * as api from '../utils/api';
 import { stringToTitleCase } from '../utils/utils';
-import { Link } from '@reach/router';
-import { StyledNav } from '../styles/AppStyles';
+import { StyledNav, NavLink } from '../styles/NavStyles';
 
 class Nav extends Component {
   state = {
@@ -23,12 +22,14 @@ class Nav extends Component {
         {topics.map((topic, i) => {
           const { slug } = topic;
           return (
-            <Link key={`topic-${i}`} to={`/topics/${slug}`}>
-              {stringToTitleCase(slug) + ' | '}
-            </Link>
+            <NavLink key={`topic-${i}`} to={`/topics/${slug}`} i={i}>
+              {stringToTitleCase(slug)}
+            </NavLink>
           );
         })}
-        <Link to='/articles'>All</Link>
+        <NavLink to='/articles' i={topics.length}>
+          All
+        </NavLink>
       </StyledNav>
     );
   }
