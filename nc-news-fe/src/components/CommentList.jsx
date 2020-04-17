@@ -4,6 +4,7 @@ import Comment from './Comment';
 import CommentForm from './CommentForm';
 import Loading from './Loading';
 import ErrorPage from './ErrorPage';
+import { CommentSection, CommentUL } from '../styles/CommentStyles';
 
 class CommentList extends Component {
   state = {
@@ -25,14 +26,14 @@ class CommentList extends Component {
     if (isError) return <ErrorPage />;
 
     return (
-      <section>
+      <CommentSection>
         <h3>Comments ({comment_count})</h3>
         <CommentForm
           addComment={this.addComment}
           article_id={this.props.article_id}
           fetchComments={this.fetchComments}
         />
-        <ul>
+        <CommentUL>
           {comments.map((comment) => {
             return (
               <Comment
@@ -43,8 +44,8 @@ class CommentList extends Component {
               />
             );
           })}
-        </ul>
-      </section>
+        </CommentUL>
+      </CommentSection>
     );
   }
 

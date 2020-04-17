@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
+import { CommentInput, Form } from '../styles/CommentStyles';
 
 class CommentForm extends Component {
   state = {
@@ -12,21 +13,19 @@ class CommentForm extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            {/* Converting to CSS later 
+        <Form onSubmit={this.handleSubmit}>
+          {/* Converting to CSS later 
           width='500px' height='75px'*/}
-            <textarea
-              maxLength='250'
-              onChange={(event) => {
-                this.handleInput(event.target.value);
-              }}
-              value={this.state.input}
-            />
-          </label>
-          <br />
+          <CommentInput
+            maxLength='250'
+            onChange={(event) => {
+              this.handleInput(event.target.value);
+            }}
+            value={this.state.input}
+          />
+
           <button>Post a comment</button>
-        </form>
+        </Form>
         {this.state.isError && (
           <p style={{ color: 'red' }}>
             Something went wrong, and your comment was not posted. Try again
