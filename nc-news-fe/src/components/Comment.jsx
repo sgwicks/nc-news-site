@@ -1,6 +1,7 @@
 import React from 'react';
 import Votes from './Votes';
 import * as api from '../utils/api';
+import { StyledComment } from '../styles/CommentStyles';
 
 const Comment = ({
   author,
@@ -18,17 +19,18 @@ const Comment = ({
 
   return (
     <>
-      <p>
-        {author}
+      <StyledComment>
+        <strong>{author}</strong>
+        <br />
         <br />
         {body}
         <br />
-        Posted {created_at.slice(0, 10)}
         <br />
+        <em>Posted {created_at.slice(0, 10)}</em>
         {author === 'happyamy2016' && (
           <button onClick={handleClick}>Delete</button>
         )}
-      </p>
+      </StyledComment>
       <Votes votes={votes} type={'comments'} id={comment_id} />
     </>
   );

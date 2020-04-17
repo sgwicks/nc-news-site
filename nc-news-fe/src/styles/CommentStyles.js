@@ -15,7 +15,7 @@ export const CommentUL = styled.ul`
   align-items: baseline;
   text-align: left;
   margin: 0;
-  padding: 20px;
+  padding: 0;
 `;
 
 export const Form = styled.form`
@@ -26,4 +26,11 @@ export const Form = styled.form`
 export const CommentInput = styled.textarea`
   height: 75px;
   margin-bottom: 15px;
+`;
+
+export const StyledComment = styled.p`
+  font-size: 90%;
+  border: solid grey 1px;
+  padding: 20px;
+  box-shadow: 5px 5px grey;
 `;
