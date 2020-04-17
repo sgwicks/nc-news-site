@@ -5,6 +5,7 @@ import Votes from './Votes';
 import CommentList from './CommentList';
 import ArticleInfo from './ArticleInfo';
 import ErrorPage from './ErrorPage';
+import { StyledMain, StyledArticle } from '../styles/MainStyles';
 
 class Article extends Component {
   state = {
@@ -33,17 +34,19 @@ class Article extends Component {
     } = this.state.article;
 
     return (
-      <article>
-        <ArticleInfo
-          title={title}
-          topic={topic}
-          author={author}
-          created_at={created_at}
-        />
-        <p>{body}</p>
+      <StyledMain>
+        <StyledArticle>
+          <ArticleInfo
+            title={title}
+            topic={topic}
+            author={author}
+            created_at={created_at}
+          />
+          <p>{body}</p>
+        </StyledArticle>
         <Votes votes={votes} type={'articles'} id={article_id} />
         <CommentList comment_count={comment_count} article_id={article_id} />
-      </article>
+      </StyledMain>
     );
   }
 

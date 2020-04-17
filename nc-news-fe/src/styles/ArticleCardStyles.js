@@ -40,10 +40,17 @@ export const Comments = styled.p`
 `;
 
 export const Info = styled.div`
+  padding: 0 20px;
   ${(props) =>
     props.type === 'card'
-      ? 'border: 2px solid black; border-right: 0'
-      : 'border: 2px solid black'};
-  grid-area: ArticleCardInfo;
-  padding: 0 20px;
+      ? 'border: 2px solid black; border-right: 0; grid-area: ArticleCardInfo;'
+      : 'padding-bottom: 10px; text-align: center;'};
+  h3 {
+    margin-bottom: 0;
+  }
+  p {
+    font-size: 75%;
+
+    padding: 0;
+  }
 `;
