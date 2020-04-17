@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
+import {
+  VotesSection,
+  VoteUp,
+  VoteDown,
+  VoteCount
+} from '../styles/VoteStyles';
 
 class Votes extends Component {
   state = {
@@ -9,23 +15,29 @@ class Votes extends Component {
 
   render() {
     const { voted, isError } = this.state;
-    const { votes } = this.props;
+    const { votes, type } = this.props;
     return (
-      <section>
+      <VotesSection type={type}>
         Votes:
-        <button onClick={() => this.handleClick(-1)} disabled={voted < 0}>
+        <VoteDown
+          type={type}
+          onClick={() => this.handleClick(-1)}
+          disabled={voted < 0}>
           -
-        </button>
-        {votes + voted}
-        <button onClick={() => this.handleClick(1)} disabled={voted > 0}>
+        </VoteDown>
+        <VoteCount type={type}>{votes + voted}</VoteCount>
+        <VoteUp
+          type={type}
+          onClick={() => this.handleClick(1)}
+          disabled={voted > 0}>
           +
-        </button>
+        </VoteUp>
         {isError && (
           <p style={{ color: 'red' }}>
             Something went wrong. Please try again later
           </p>
         )}
-      </section>
+      </VotesSection>
     );
   }
 
