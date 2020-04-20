@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const CommentSection = styled.section`
-  background: white;
-  border: solid black 2px;
+  background: #333;
+
   max-width: 80%;
   align-self: center;
   padding: 0 40px 20px 40px;
@@ -37,11 +37,12 @@ export const StyledComment = styled.li`
     grid-template-columns: auto;
     grid-gap: 5px;
   }
-
+  background: white;
+  color: black;
   font-size: 90%;
   border: solid grey 1px;
   padding: 10px 20px;
-  box-shadow: 5px 5px grey;
+  box-shadow: 5px 5px black;
   display: grid;
   grid-template-columns: auto 75px;
   grid-template-rows: auto;

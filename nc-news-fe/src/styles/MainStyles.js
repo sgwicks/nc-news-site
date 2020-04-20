@@ -20,4 +20,5 @@ export const StyledArticle = styled.article`
   padding: 0 40px 20px 40px;
   text-align: left;
   align-self: center;
+  color: black;
 `;
