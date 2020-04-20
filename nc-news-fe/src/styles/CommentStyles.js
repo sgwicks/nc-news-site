@@ -27,7 +27,7 @@ export const CommentInput = styled.textarea`
   margin-bottom: 15px;
 `;
 
-export const StyledComment = styled.div`
+export const StyledComment = styled.li`
   @media only screen and (max-width: 600px) {
     grid-template-areas:
       'CommentAuthor'
@@ -73,6 +73,6 @@ export const DeleteButton = styled.button`
   margin-left: 5px;
   background: none;
   border: none;
-  color: red;
+  color: #991100;
   cursor: pointer;
 `;

@@ -42,6 +42,7 @@ class Article extends Component {
             topic={topic}
             author={author}
             created_at={created_at}
+            type={'article'}
           />
           <p>{body}</p>
         </StyledArticle>

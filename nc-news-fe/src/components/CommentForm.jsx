@@ -14,9 +14,8 @@ class CommentForm extends Component {
     return (
       <>
         <Form onSubmit={this.handleSubmit}>
-          {/* Converting to CSS later 
-          width='500px' height='75px'*/}
           <CommentInput
+            aria-label='Comment'
             maxLength='250'
             onChange={(event) => {
               this.handleInput(event.target.value);

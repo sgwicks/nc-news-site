@@ -5,7 +5,11 @@ import { Info } from '../styles/ArticleCardStyles';
 const ArticleInfo = ({ title, topic, author, created_at, type }) => {
   return (
     <Info type={type}>
-      <h3>{stringToTitleCase(title)}</h3>
+      {type === 'article' ? (
+        <h2>{stringToTitleCase(title)}</h2>
+      ) : (
+        <h3>{stringToTitleCase(title)}</h3>
+      )}
       <p>
         in {stringToTitleCase(topic)}, by {author}, written{' '}
         {created_at.slice(0, 10)}
