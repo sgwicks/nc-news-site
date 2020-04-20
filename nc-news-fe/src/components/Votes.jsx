@@ -33,7 +33,7 @@ class Votes extends Component {
           +
         </VoteUp>
         {isError && (
-          <p style={{ color: 'red' }}>
+          <p style={{ color: '#991100' }}>
             Something went wrong. Please try again later
           </p>
         )}

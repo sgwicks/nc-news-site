@@ -26,13 +26,13 @@ class CommentForm extends Component {
           <button>Post a comment</button>
         </Form>
         {this.state.isError && (
-          <p style={{ color: 'red' }}>
+          <p style={{ color: '#991100' }}>
             Something went wrong, and your comment was not posted. Try again
             later.
           </p>
         )}
         {this.state.submitIsEmpty && (
-          <p style={{ color: 'red' }}>
+          <p style={{ color: '#991100' }}>
             You can't post an empty comment. Write something in the box and try
             again.
           </p>
