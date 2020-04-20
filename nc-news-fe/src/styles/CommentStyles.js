@@ -28,6 +28,16 @@ export const CommentInput = styled.textarea`
 `;
 
 export const StyledComment = styled.div`
+  @media only screen and (max-width: 600px) {
+    grid-template-areas:
+      'CommentAuthor'
+      'CommentBody'
+      'CommentDate'
+      'CommentVotes';
+    grid-template-columns: auto;
+    grid-gap: 5px;
+  }
+
   font-size: 90%;
   border: solid grey 1px;
   padding: 10px 20px;

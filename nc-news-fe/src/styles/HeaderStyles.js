@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from '@reach/router';
 
 export const StyledHeader = styled.header`
-  @media only screen and (max-width: 750px) {
+  @media only screen and (max-width: 768px) {
     flex-direction: column;
   }
 
@@ -23,7 +23,7 @@ export const H1 = styled.h1`
 `;
 
 export const User = styled.p`
-  @media only screen and (max-width: 750px) {
+  @media only screen and (max-width: 768px) {
     position: relative;
     align-self: center;
   }

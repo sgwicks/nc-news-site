@@ -9,6 +9,14 @@ export const StyledLink = styled(Link)`
 `;
 
 export const Section = styled.section`
+  @media only screen and (max-width: 600px) {
+    grid-template-areas:
+      'ArticleCardInfo ArticleCardInfo'
+      'ArticleCardVotes ArticleCardComments';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
   background: white;
   display: grid;
   grid-template-columns: 5fr 1fr;
@@ -21,6 +29,10 @@ export const Section = styled.section`
 `;
 
 export const Votes = styled.p`
+  @media only screen and (max-width: 600px) {
+    border-top: none;
+  }
+
   grid-area: ArticleCardVotes;
   margin: 0;
   border: solid black 2px;
@@ -30,6 +42,10 @@ export const Votes = styled.p`
 `;
 
 export const Comments = styled.p`
+  @media only screen and (max-width: 600px) {
+    border-left: none;
+  }
+
   grid-area: ArticleCardComments;
   margin: 0;
   border: solid black 2px;
@@ -40,6 +56,10 @@ export const Comments = styled.p`
 `;
 
 export const Info = styled.div`
+  @media only screen and (max-width: 600px) {
+    ${(props) => props.type === 'card' && 'border-right: solid black 2px'}
+  }
+
   padding: 0 20px;
   ${(props) =>
     props.type === 'card'
