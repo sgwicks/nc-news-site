@@ -29,7 +29,7 @@ class ArticleList extends Component {
   render() {
     const { articles, isLoading, isError } = this.state;
     if (isLoading) return <Loading />;
-    if (isError) return <ErrorPage />;
+    if (isError) return <ErrorPage err={isError} />;
     return (
       <StyledMain>
         <StyledH2>
@@ -51,9 +51,12 @@ class ArticleList extends Component {
   fetchArticles = async (topic, sort_by, order) => {
     try {
       const articles = await api.getArticles(topic, sort_by, order);
-      this.setState({ articles, isLoading: false });
-    } catch (err) {
-      this.setState({ isError: true, isLoading: false });
+      this.setState({ articles, isLoading: false, isError: null });
+    } catch ({ response: { data, status } }) {
+      this.setState({
+        isError: { msg: data.msg, status },
+        isLoading: false
+      });
     }
   };
 }

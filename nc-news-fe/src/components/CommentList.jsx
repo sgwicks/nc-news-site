@@ -23,7 +23,7 @@ class CommentList extends Component {
   render() {
     const { comment_count, comments, isLoading, isError } = this.state;
     if (isLoading) return <Loading />;
-    if (isError) return <ErrorPage />;
+    if (isError) return <ErrorPage err={isError} />;
 
     return (
       <CommentSection>
@@ -52,9 +52,9 @@ class CommentList extends Component {
   fetchComments = async (article_id) => {
     try {
       const comments = await api.getCommentsByArticleId(article_id);
-      this.setState({ comments, isLoading: false });
-    } catch (err) {
-      this.setState({ isError: true, isLoading: false });
+      this.setState({ comments, isLoading: false, isError: null });
+    } catch ({ response: { data, status } }) {
+      this.setState({ isError: { msg: data.msg, status }, isLoading: false });
     }
   };
 

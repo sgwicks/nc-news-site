@@ -19,8 +19,9 @@ class Article extends Component {
   }
 
   render() {
-    if (this.state.isLoading) return <Loading />;
-    if (this.state.isError) return <ErrorPage />;
+    const { isError, isLoading } = this.state;
+    if (isLoading) return <Loading />;
+    if (isError) return <ErrorPage err={isError} />;
 
     const {
       title,
@@ -53,9 +54,12 @@ class Article extends Component {
   fetchArticleById = async (article_id) => {
     try {
       const article = await api.getArticleById(article_id);
-      this.setState({ article, isLoading: false });
-    } catch (err) {
-      this.setState({ isError: true, isLoading: false });
+      this.setState({ article, isLoading: false, isError: null });
+    } catch ({ response: { data, status } }) {
+      this.setState({
+        isError: { msg: data.msg, status },
+        isLoading: false
+      });
     }
   };
 }

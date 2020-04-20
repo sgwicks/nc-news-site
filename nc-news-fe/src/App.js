@@ -17,7 +17,10 @@ function App() {
         <ArticleList path='/articles' />
         <ArticleList path='/topics/:topic_slug' />
         <Article path='/articles/:article_id' />
-        <ErrorPage default />
+        <ErrorPage
+          default
+          err={{ status: 404, msg: 'That page does not exist' }}
+        />
       </StyledRouter>
       <Footer />
     </StyledApp>

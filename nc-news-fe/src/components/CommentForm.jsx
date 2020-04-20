@@ -4,7 +4,7 @@ import { CommentInput, Form } from '../styles/CommentStyles';
 
 class CommentForm extends Component {
   state = {
-    input: localStorage.getItem('input'),
+    input: localStorage.getItem('input') || '',
     comment: null,
     isError: null,
     submitIsEmpty: null
