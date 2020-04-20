@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { Link } from '@reach/router';
 
 export const StyledHeader = styled.header`
+  @media only screen and (max-width: 750px) {
+    flex-direction: column;
+  }
+
   background: #bbbbbb;
   padding: 10px 0;
   grid-area: AppHeader;
@@ -19,6 +23,11 @@ export const H1 = styled.h1`
 `;
 
 export const User = styled.p`
+  @media only screen and (max-width: 750px) {
+    position: relative;
+    align-self: center;
+  }
+
   margin: 0 5px 0 0;
   padding: 0;
   position: absolute;
