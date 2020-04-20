@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const StyledMain = styled.main`
-  background: #eee;
+  background: #333;
   display: flex;
   flex-direction: column;
+  color: white;
 `;
 
 export const StyledH2 = styled.h2``;

@@ -6,20 +6,23 @@ export const StyledHeader = styled.header`
     flex-direction: column;
   }
 
-  background: #bbbbbb;
+  background: #333;
   padding: 10px 0;
   grid-area: AppHeader;
   display: flex;
   justify-content: flex-end;
+  color: white;
 `;
 
 export const HeaderLink = styled(Link)`
   margin-right: auto;
   margin-left: auto;
+  text-decoration: none;
 `;
 
 export const H1 = styled.h1`
   display: inline;
+  color: white;
 `;
 
 export const User = styled.p`

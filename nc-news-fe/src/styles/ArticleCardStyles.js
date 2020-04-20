@@ -17,7 +17,7 @@ export const Section = styled.section`
     grid-template-rows: auto;
   }
 
-  background: white;
+  background: #fff;
   display: grid;
   grid-template-columns: 5fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -32,7 +32,7 @@ export const Votes = styled.p`
   @media only screen and (max-width: 600px) {
     border-top: none;
   }
-
+  background: #9f9;
   grid-area: ArticleCardVotes;
   margin: 0;
   border: solid black 2px;
@@ -46,6 +46,7 @@ export const Comments = styled.p`
     border-left: none;
   }
 
+  background: #99f;
   grid-area: ArticleCardComments;
   margin: 0;
   border: solid black 2px;

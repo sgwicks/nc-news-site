@@ -20,6 +20,7 @@ export const StyledApp = styled.div`
     '. AppNav .'
     '. AppMain .'
     '. AppFooter .';
+  background: #ddd;
 `;
 
 export const StyledRouter = styled(Router)`
